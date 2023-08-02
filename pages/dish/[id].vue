@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SearchPresenter />
+    <DetailsPresenter />
   </div>
 </template>
 

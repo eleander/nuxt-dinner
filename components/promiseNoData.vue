@@ -12,7 +12,7 @@
 // const props = defineProps[("error", "data", "pending")];
 
 const props = defineProps<{
-  error: string;
+  error: string | null | undefined;
   data: any;
   pending: boolean;
 }>();

@@ -5,7 +5,7 @@ export default function (id: string | number) {
     id = parseInt(id);
   }
 
-  return useFetch<DishDetails>(
+  return $fetch<DishDetails>(
     useRuntimeConfig().public.baseUrl + "/recipes/" + id + "/information",
     { headers: { "X-Mashape-Key": useRuntimeConfig().public.apiKey } }
   );

@@ -8,14 +8,14 @@
       :dishTypes="dishTypes"
       @search="refresh"
     />
-    <PromiseNoData :data="dishes" :error="error?.data" :pending="pending">
-      <SearchResultsView :dishes="dishes" />
+    <PromiseNoData :data="dishes" :error="error?.message" :pending="pending">
+      <SearchResultsView :dishes="dishes" @selectDish="navigateToDish" />
     </PromiseNoData>
   </div>
 </template>
 
 <script lang="ts" setup>
-const query = ref("pizza");
+const query = ref("");
 const type = ref("");
 const dishTypes = ["starter", "main course", "dessert"];
 
@@ -32,7 +32,13 @@ const {
   error,
   pending,
   refresh,
-} = useSearchDishes(query.value, type.value);
+} = useAsyncData("searchDishes", () =>
+  useSearchDishes(query.value, type.value)
+);
+
+function navigateToDish(dishId: number) {
+  return navigateTo(`/dish/${dishId}`);
+}
 </script>
 
 <style></style>
