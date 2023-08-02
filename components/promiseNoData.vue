@@ -1,6 +1,6 @@
 <template>
   <div v-if="error">
-    <h1>{{ error }}</h1>
+    <h1>{{ error.message }}</h1>
   </div>
   <div v-else-if="pending"><h1>Loading...</h1></div>
   <div v-else>
@@ -12,7 +12,7 @@
 // const props = defineProps[("error", "data", "pending")];
 
 const props = defineProps<{
-  error: string | null | undefined;
+  error: Error | null;
   data: any;
   pending: boolean;
 }>();

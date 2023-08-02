@@ -8,7 +8,7 @@
       :dishTypes="dishTypes"
       @search="refresh"
     />
-    <PromiseNoData :data="dishes" :error="error?.message" :pending="pending">
+    <PromiseNoData :data="dishes" :error="error" :pending="pending">
       <SearchResultsView :dishes="dishes" @selectDish="navigateToDish" />
     </PromiseNoData>
   </div>

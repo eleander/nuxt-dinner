@@ -1,6 +1,14 @@
 <template>
   <div>
-    <DetailsView />
+    <PromiseNoData :pending="pending" :data="dish" :error="error">
+      <DetailsView
+        :dish="dish"
+        :guests="2"
+        :is-dish-in-menu="true"
+        @add-to-menu="addToMenu"
+        @cancel="navigateHome"
+      />
+    </PromiseNoData>
   </div>
 </template>
 
@@ -13,6 +21,14 @@ const {
   error,
   pending,
 } = useAsyncData("getDish", () => useGetDishDetails(dishId));
+
+function addToMenu() {
+  console.log("Add to menu");
+}
+
+function navigateHome() {
+  return navigateTo("/");
+}
 </script>
 
 <style></style>
