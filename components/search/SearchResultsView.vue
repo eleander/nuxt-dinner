@@ -23,7 +23,7 @@
 import { SearchDishes } from "~/types/index";
 
 const props = defineProps<{
-  dishes: SearchDishes | null;
+  dishes: Pick<SearchDishes, "results"> | null;
 }>();
 
 const emit = defineEmits<{

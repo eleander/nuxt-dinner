@@ -60,6 +60,17 @@ export interface DishDetails {
   originalId: null;
 }
 
+export type ReducedDishDetails = Pick<
+  DishDetails,
+  | "id"
+  | "pricePerServing"
+  | "title"
+  | "sourceUrl"
+  | "image"
+  | "instructions"
+  | "extendedIngredients"
+>;
+
 export interface AnalyzedInstruction {
   name: string;
   steps: Step[];

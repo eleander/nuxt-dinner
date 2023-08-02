@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
-import { DishDetails } from "@/types/index";
+import { ReducedDishDetails } from "@/types/index";
 
 export const useMyDinnerStore = defineStore("dinner", () => {
   const numberOfGuests = ref(0);
-  const dishes = ref([] as DishDetails[]);
+  const dishes = ref([] as ReducedDishDetails[]);
 
   function setNumberOfGuests(newNumberOfGuests: number) {
     if (newNumberOfGuests == numberOfGuests.value) return;
@@ -14,7 +14,7 @@ export const useMyDinnerStore = defineStore("dinner", () => {
     }
   }
 
-  function addToMenu(dishToAdd: DishDetails) {
+  function addToMenu(dishToAdd: ReducedDishDetails) {
     dishes.value.push(dishToAdd);
   }
 

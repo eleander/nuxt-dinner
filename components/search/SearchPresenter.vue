@@ -32,8 +32,10 @@ const {
   error,
   pending,
   refresh,
-} = useAsyncData("searchDishes", () =>
-  useSearchDishes(query.value, type.value)
+} = useAsyncData(
+  "searchDishes",
+  () => useSearchDishes(query.value, type.value),
+  { pick: ["results"] }
 );
 
 function navigateToDish(dishId: number) {

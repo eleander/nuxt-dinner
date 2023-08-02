@@ -36,10 +36,10 @@ b
 </template>
 
 <script lang="ts" setup>
-import type { DishDetails } from "@/types/index";
+import type { ReducedDishDetails } from "@/types/index";
 
 const props = defineProps<{
-  dish: DishDetails | null;
+  dish: ReducedDishDetails | null;
   guests: number;
   isDishInMenu: boolean;
 }>();

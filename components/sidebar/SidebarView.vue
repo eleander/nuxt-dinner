@@ -27,11 +27,11 @@
 </template>
 
 <script lang="ts" setup>
-import { DishDetails } from "types";
+import { ReducedDishDetails } from "types";
 
 defineProps<{
   guests: number;
-  dishes: DishDetails[];
+  dishes: ReducedDishDetails[];
 }>();
 
 defineEmits<{

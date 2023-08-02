@@ -23,7 +23,17 @@ const {
   data: dish,
   error,
   pending,
-} = useAsyncData(dishId, () => useGetDishDetails(dishId));
+} = useAsyncData(dishId, () => useGetDishDetails(dishId), {
+  pick: [
+    "id",
+    "title",
+    "pricePerServing",
+    "image",
+    "instructions",
+    "sourceUrl",
+    "extendedIngredients",
+  ],
+});
 
 const isDishInMenu = computed(() => {
   if (!dish.value) return false;
