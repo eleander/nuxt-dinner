@@ -1,0 +1,17 @@
+<template>
+  <div class="flex min-h-screen flex-col bg-gray-200">
+    <Navbar />
+    <div class="flex flex-grow flex-col md:flex-row">
+      <SidebarPresenter class="md:w-1/4" />
+      <main class="bg-white p-4 md:w-3/4">
+        <h2 class="text-xl font-bold">Main Content</h2>
+        <slot />
+      </main>
+    </div>
+    <Footer />
+  </div>
+</template>
+
+<script lang="ts" setup></script>
+
+<style></style>
