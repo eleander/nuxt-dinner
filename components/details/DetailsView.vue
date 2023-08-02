@@ -11,12 +11,19 @@ b
         Add to Menu
       </button>
       <button @click="$emit('cancel')" class="btn btn-ghost">Cancel</button>
-      <p>Price per servings:{{ dish.pricePerServing }}$</p>
+      <p>Price per servings: {{ dish.pricePerServing }}$</p>
       <p>
         For {{ guests }} guests:
         {{ (dish.pricePerServing * guests).toFixed(2) }}$
       </p>
-      <NuxtImg :src="dish.image" class="rounded-lg" />
+      <div class="flex flex-col items-center">
+        <NuxtImg
+          loading="lazy"
+          width="350"
+          :src="dish.image"
+          class="rounded-lg"
+        />
+      </div>
       <p>{{ dish.instructions }}</p>
       <p><a :href="dish.sourceUrl">Original recipe</a></p>
       <ol>

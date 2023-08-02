@@ -15,4 +15,8 @@ export default defineNuxtConfig({
       apiKey: "",
     },
   },
+  image: {
+    format: "webp",
+    domains: ["spoonacular.com", "brfenergi.se"],
+  },
 });
