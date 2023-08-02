@@ -14,7 +14,7 @@
           <td>
             <a>{{ dish.title }}</a>
           </td>
-          <td>{{ dish.dishTypes[0] }}</td>
+          <td>{{ theDishType(dish) }}</td>
           <td class="dishPrice">
             {{ (dish.pricePerServing * number).toFixed(2) }}
           </td>
@@ -40,6 +40,10 @@ const props = defineProps<{
   menuPrice: string;
   dishes: ReducedDishDetails[];
 }>();
+
+const theDishType = (dish: ReducedDishDetails) => {
+  return dishType(dish.dishTypes);
+};
 </script>
 
 <style></style>

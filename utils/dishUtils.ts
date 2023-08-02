@@ -27,3 +27,11 @@ export const menuPrice = (dishes: ReducedDishDetails[]) => {
   }
   return dishes.map(dishPriceCB).reduce(sumReducerCB, 0);
 };
+
+export const dishType = (dishTypes: string[]) => {
+  const knownDishTypes = ["starter", "main course", "dessert"];
+  const result = dishTypes.filter((dishType) =>
+    knownDishTypes.includes(dishType)
+  );
+  return result.length > 0 ? result[0] : "";
+};
