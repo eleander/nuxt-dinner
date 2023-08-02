@@ -24,6 +24,6 @@ useServerSeoMeta({
   description: description,
   ogTitle: "Dinner Planner for DH2643",
   ogDescription: description,
-  ogImage: "/favicon.ico",
+  ogImage: "nuxt-dinner.vercel.app/interaction_programming.png",
 });
 </script>
