@@ -1,8 +1,17 @@
 <template>
   <div>
     <div class="navbar bg-blue-700 rounded-lg">
-      <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl text-white">{{ title }}</a>
+      <div class="flex-1 flex-grow">
+        <NuxtLink to="/" class="btn btn-ghost normal-case text-xl text-white">{{
+          title
+        }}</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink
+          to="/summary"
+          class="btn btn-ghost normal-case text-xl text-white"
+          >Summary</NuxtLink
+        >
       </div>
     </div>
   </div>

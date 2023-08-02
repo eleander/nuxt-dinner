@@ -12,7 +12,7 @@ export const useMyDinnerStore = defineStore("dinner", () => {
   }
 
   function addToMenu(dishToAdd: ReducedDishDetails) {
-    dishes.value.push(dishToAdd);
+    dishes.value = [...dishes.value, dishToAdd];
   }
 
   function removeFromMenu(dishToRemove: number) {

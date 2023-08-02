@@ -2,12 +2,14 @@
   <div>
     <footer class="footer footer-center p-4 bg-base-300 text-base-content">
       <div>
-        <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © {{ year }} - All right reserved by DH2643</p>
       </div>
     </footer>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const year = new Date().getFullYear();
+</script>
 
 <style></style>

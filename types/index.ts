@@ -69,6 +69,7 @@ export type ReducedDishDetails = Pick<
   | "image"
   | "instructions"
   | "extendedIngredients"
+  | "dishTypes"
 >;
 
 export interface AnalyzedInstruction {

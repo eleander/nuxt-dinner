@@ -1,26 +1,29 @@
-// function searchDishes(params): string {
-//   const config = useRuntimeConfig();
-//   return (
-//     config.public.baseUrl +
-//     "recipes/complexSearch?" +
-//     new URLSearchParams(params)
-//   );
-// }
+import { ExtendedIngredient, ReducedDishDetails } from "types";
+export const useShoppingList = (dishes: ReducedDishDetails[]) => {
+  function keepJustIngredientsCB(dish: ReducedDishDetails) {
+    return dish.extendedIngredients;
+  }
+  const result: { [key: number]: ExtendedIngredient } = {}; // object used as mapping
 
-// function getMenuDetails(arr: string[]) {
-//   const config = useRuntimeConfig();
-//   return (
-//     config.public.baseUrl +
-//     "recipes/informationBulk?" +
-//     new URLSearchParams({ ids: arr })
-//   );
-// }
+  dishes.map(keepJustIngredientsCB).forEach((ingredients) => {
+    ingredients.forEach((ingredient) => {
+      if (result[ingredient.id]) {
+        result[ingredient.id].amount += ingredient.amount;
+      } else {
+        result[ingredient.id] = ingredient;
+      }
+    });
+  });
 
-// function getDishDetails(id: string) {
-//   const config = useRuntimeConfig();
-//   return (
-//     config.public.baseUrl +
-//     "recipes/informationBulk?" +
-//     new URLSearchParams({ ids: [id] })
-//   );
-// }
+  return Object.values(result);
+};
+
+export const menuPrice = (dishes: ReducedDishDetails[]) => {
+  function dishPriceCB(dish: ReducedDishDetails) {
+    return dish.pricePerServing;
+  }
+  function sumReducerCB(acc: number, number: number) {
+    return acc + number;
+  }
+  return dishes.map(dishPriceCB).reduce(sumReducerCB, 0);
+};
