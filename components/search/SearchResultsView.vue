@@ -5,15 +5,7 @@
       @click="$emit('selectDish', dish.id)"
       class="card bg-base-100 shadow-xl w-64 m-3"
     >
-      <ClientOnly>
-        <NuxtImg
-          loading="lazy"
-          width="256"
-          height="150"
-          :src="dish.image"
-          :alt="dish.title"
-        />
-      </ClientOnly>
+      <NuxtImg width="256" height="150" :src="dish.image" :alt="dish.title" />
       <div class="card-body">
         <h1 class="card-title">{{ dish.title }}</h1>
       </div>
