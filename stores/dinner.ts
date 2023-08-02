@@ -18,8 +18,8 @@ export const useMyDinnerStore = defineStore("dinner", () => {
     dishes.value.push(dishToAdd);
   }
 
-  function removeFromMenu(dishToRemove: DishDetails) {
-    dishes.value = dishes.value.filter((d) => d.id !== dishToRemove.id);
+  function removeFromMenu(dishToRemove: number) {
+    dishes.value = dishes.value.filter((d) => d.id !== dishToRemove);
   }
   return {
     numberOfGuests,
