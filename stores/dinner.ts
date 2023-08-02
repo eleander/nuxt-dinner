@@ -7,11 +7,8 @@ export const useMyDinnerStore = defineStore("dinner", () => {
 
   function setNumberOfGuests(newNumberOfGuests: number) {
     if (newNumberOfGuests == numberOfGuests.value) return;
-    if (Number.isInteger(newNumberOfGuests) && newNumberOfGuests > 0) {
+    if (Number.isInteger(newNumberOfGuests) && newNumberOfGuests > 0)
       numberOfGuests.value = newNumberOfGuests;
-    } else {
-      throw new Error("number of guests not a positive integer");
-    }
   }
 
   function addToMenu(dishToAdd: ReducedDishDetails) {

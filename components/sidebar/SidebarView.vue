@@ -4,12 +4,12 @@
     <div
       class="flex justify-around lg:justify-center lg:justify-items-center items-center"
     >
-      <button @click="$emit('changeNumber', guests + 1)" class="btn btn-square">
-        +
-      </button>
-      <p class="mx-3 text-center">{{ guests }} Guests</p>
       <button @click="$emit('changeNumber', guests - 1)" class="btn btn-square">
         -
+      </button>
+      <p class="mx-3 text-center">{{ guests }} Guests</p>
+      <button @click="$emit('changeNumber', guests + 1)" class="btn btn-square">
+        +
       </button>
     </div>
     <ul class="grid grid-cols-1 divide-y">
