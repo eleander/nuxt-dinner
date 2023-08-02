@@ -4,8 +4,8 @@
       <DetailsView
         :dish="dish"
         :guests="2"
-        :is-dish-in-menu="true"
-        @add-to-menu="addToMenu"
+        :isDishInMenu="isDishInMenu"
+        @addToMenu="addToMenu"
         @cancel="navigateHome"
       />
     </PromiseNoData>
@@ -13,6 +13,9 @@
 </template>
 
 <script lang="ts" setup>
+import { useMyDinnerStore } from "@/stores/dinner";
+const store = useMyDinnerStore();
+
 const route = useRoute();
 const dishId = route.params.id as string;
 
@@ -22,11 +25,18 @@ const {
   pending,
 } = useAsyncData("getDish", () => useGetDishDetails(dishId));
 
+const isDishInMenu = computed(() => {
+  if (!dish.value) return false;
+  return store.dishes.some((d) => d.id === dish.value?.id);
+});
+
 function addToMenu() {
-  console.log("Add to menu");
+  if (!dish.value) return;
+  store.addToMenu(dish.value);
+  navigateHome();
 }
 
-function navigateHome() {
+async function navigateHome() {
   return navigateTo("/");
 }
 </script>
