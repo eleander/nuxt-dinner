@@ -17,9 +17,9 @@ useHead({
       name: description,
     },
     {
-      hid: "og-image",
       property: "og:image",
-      content: "https://nuxt-dinner.vercel.app/interaction_programming.png",
+      content:
+        "https://nuxt-dinner.vercel.app/images/interaction_programming.png",
     },
   ],
 });
