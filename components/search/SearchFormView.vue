@@ -13,7 +13,7 @@
       @input="$emit('setType', ($event.target as HTMLInputElement).value)"
       class="select select-bordered w-full max-w-xs mx-1"
     >
-      <option value=" ">All</option>
+      <option value="">All</option>
       <option v-for="dishType in dishTypes" :key="dishType" :value="dishType">
         {{ dishType }}
       </option>
