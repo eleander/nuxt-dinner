@@ -1,6 +1,9 @@
 <template>
   <div>
-    <table class="table">
+    <div v-if="menuPrice == '0.00'">
+      <AlertError errorMessage="No items in your cart!" />
+    </div>
+    <table class="table" v-else>
       <tbody>
         <tr>
           <th>Dish Name</th>
@@ -31,7 +34,7 @@
 
 <script lang="ts" setup>
 import { ExtendedIngredient, ReducedDishDetails } from "types";
-defineProps<{
+const props = defineProps<{
   shoppingList: ExtendedIngredient[];
   number: number;
   menuPrice: string;

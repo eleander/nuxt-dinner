@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ReducedDishDetails } from "@/types/index";
 
 export const useMyDinnerStore = defineStore("dinner", () => {
-  const numberOfGuests = ref(0);
+  const numberOfGuests = ref(1);
   const dishes = ref([] as ReducedDishDetails[]);
 
   function setNumberOfGuests(newNumberOfGuests: number) {
