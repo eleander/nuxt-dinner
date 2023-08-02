@@ -36,7 +36,7 @@ b
 </template>
 
 <script lang="ts" setup>
-import type { ReducedDishDetails } from "@/types/index";
+import type { ReducedDishDetails } from "@/types";
 
 const props = defineProps<{
   dish: ReducedDishDetails | null;

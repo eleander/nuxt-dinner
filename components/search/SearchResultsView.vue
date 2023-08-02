@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-import { SearchDishes } from "~/types/index";
+import { SearchDishes } from "~/types";
 
 const props = defineProps<{
   dishes: Pick<SearchDishes, "results"> | null;

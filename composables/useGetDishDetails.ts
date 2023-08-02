@@ -1,4 +1,4 @@
-import type { DishDetails } from "@/types/index";
+import type { DishDetails } from "@/types";
 
 export default function (id: string | number) {
   if (typeof id === "string") {

@@ -1,4 +1,4 @@
-import type { SearchDishes } from "@/types/index";
+import type { SearchDishes } from "@/types";
 
 export default function (query: string, type: string, page: number) {
   return $fetch<SearchDishes>(
