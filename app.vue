@@ -16,6 +16,11 @@ useHead({
     {
       name: description,
     },
+    {
+      hid: "og-image",
+      property: "og:image",
+      content: "https://nuxt-dinner.vercel.app/interaction_programming.png",
+    },
   ],
 });
 
@@ -24,6 +29,5 @@ useServerSeoMeta({
   description: description,
   ogTitle: "Dinner Planner for DH2643",
   ogDescription: description,
-  ogImage: "nuxt-dinner.vercel.app/interaction_programming.png",
 });
 </script>
