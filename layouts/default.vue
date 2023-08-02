@@ -1,5 +1,5 @@
 <template>
-  <div class="flex min-h-screen flex-col">
+  <div class="flex min-h-screen flex-col p-3">
     <Navbar />
     <div class="flex flex-grow flex-col md:flex-row">
       <SidebarPresenter class="md:w-1/4" />

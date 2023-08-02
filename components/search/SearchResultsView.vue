@@ -1,7 +1,15 @@
 <template>
-  <div v-for="dish in dishes?.results" @click="$emit('selectDish', dish.id)">
-    <h1>{{ dish.title }}</h1>
-    <NuxtImg :src="dish.image" :alt="dish.title" />
+  <div class="flex flex-wrap flex-row justify-center">
+    <div
+      v-for="dish in dishes?.results"
+      @click="$emit('selectDish', dish.id)"
+      class="card bg-base-100 shadow-xl w-64 m-3"
+    >
+      <NuxtImg :src="dish.image" :alt="dish.title" />
+      <div class="card-body">
+        <h1 class="card-title">{{ dish.title }}</h1>
+      </div>
+    </div>
   </div>
 </template>
 
