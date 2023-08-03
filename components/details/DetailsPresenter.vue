@@ -3,7 +3,7 @@
     <PromiseNoData :pending="pending" :data="dish" :error="error">
       <DetailsView
         :dish="dish"
-        :guests="2"
+        :guests="store.numberOfGuests"
         :isDishInMenu="isDishInMenu"
         @addToMenu="addToMenu"
         @cancel="navigateHome"
