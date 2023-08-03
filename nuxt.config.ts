@@ -7,7 +7,15 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-icon",
     "@vueuse/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
   ],
+  piniaPersistedstate: {
+    cookieOptions: {
+      sameSite: "strict",
+    },
+    storage: "localStorage",
+  },
+
   runtimeConfig: {
     apiSecret: "",
     public: {
