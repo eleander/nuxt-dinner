@@ -202,14 +202,12 @@ Refer to docs :-)
 
 #### Reusing Styles 
 
-##### Multi Cursor Editing 
-##### Loops
-##### Defining Components 
+- Multi Cursor Editing: [Nice Article](https://davidamos.dev/vs-code-multi-cursors/)
+- Loops: v-for, .map(...), etc 
+- Defining Components :-)
 
 
-### It's just CSS! 
-
-Check out their [docs](https://tailwindcss.com/docs) 
+### It's just CSS! - Check out the [docs](https://tailwindcss.com/docs) 
 
 And just do Ctrl + K and whatever CSS property you are interested in :-)
 
