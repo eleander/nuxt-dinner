@@ -80,9 +80,9 @@ type Data = [number, string];
 ## Tailwind 
 ### Installation Guide [Official](https://tailwindcss.com/docs/installation) / [Nuxt Module](https://tailwindcss.nuxtjs.org/)
 
-### Editor Setup [Ref](https://tailwindcss.com/docs/editor-setup)
+### Editor Setup - [Ref](https://tailwindcss.com/docs/editor-setup)
 
-### Core Concepts [Ref](https://tailwindcss.com/docs/utility-first)
+### Core Concepts - [Ref](https://tailwindcss.com/docs/utility-first)
 
 #### Utility First 
 "Normal"
@@ -172,7 +172,7 @@ In essence, Tailwind provides utility classes like:
 - Responsive design. Tailwind has responsive utilities so no need for media queries 
 - Hover, focus and other states. Inline styles can’t target states like hover or focus,
 
-#### Hover, Focus and Other States [Ref](https://tailwindcss.com/docs/hover-focus-and-other-states)
+#### Hover, Focus and Other States - [Ref](https://tailwindcss.com/docs/hover-focus-and-other-states)
 
 Refer to docs :-)
 
@@ -232,7 +232,7 @@ Making the static HTML page interactive is called "Hydration"
 #### Client Side Rendering 
 ![CSR](./images/csr.svg) 
 
-### Writing SSR Friendly Code [Ref](https://vuejs.org/guide/scaling-up/ssr.html#writing-ssr-friendly-code)
+### Writing SSR Friendly Code - [Ref](https://vuejs.org/guide/scaling-up/ssr.html#writing-ssr-friendly-code)
 
 #### Component Lifecycle
 - Since there are no dynamic updates, lifecycle hooks such as onMounted or onUpdated will NOT be called during SSR and will only be executed on the client.
@@ -255,19 +255,20 @@ onMounted(()=> {....})
 #### Access to Platform-Specific API
 
 - Universal code cannot assume access to platform-specific APIs, so if your code directly uses browser-only globals like **window** or **document**, they will throw errors when executed in Node.js, and vice-versa.
+- I recommend using **[template refs](https://vuejs.org/guide/essentials/template-refs.html)** if you need direct access to the DOM. **onMounted** is required in this case
 
 
-### Components [Ref](https://nuxt.com/docs/guide/directory-structure/components)
+### Components - [Ref](https://nuxt.com/docs/guide/directory-structure/components)
 
-### Composables [Ref](https://nuxt.com/docs/guide/directory-structure/composables) and [Composables in Depth](https://vuejs.org/guide/reusability/composables.html) and [VueUse](https://vueuse.org/) / [VueUse Install](https://vueuse.org/guide/#nuxt)
+### Composables - [Ref](https://nuxt.com/docs/guide/directory-structure/composables) and [Composables in Depth](https://vuejs.org/guide/reusability/composables.html) and [VueUse](https://vueuse.org/) / [VueUse Install](https://vueuse.org/guide/#nuxt)
 
-### Layouts [Ref](https://nuxt.com/docs/guide/directory-structure/layouts) and [Slots](https://vuejs.org/guide/components/slots.html)
+### Layouts - [Ref](https://nuxt.com/docs/guide/directory-structure/layouts) and [Slots](https://vuejs.org/guide/components/slots.html)
 
-### Pages [Ref](https://nuxt.com/docs/guide/directory-structure/pages)
+### Pages - [Ref](https://nuxt.com/docs/guide/directory-structure/pages)
 
-### Utils [Ref](https://nuxt.com/docs/guide/directory-structure/utils)
+### Utils - [Ref](https://nuxt.com/docs/guide/directory-structure/utils)
 
-### Stores [Setup Stores](https://pinia.vuejs.org/core-concepts/#Setup-Stores) and [Pinia Install](https://pinia.vuejs.org/ssr/nuxt.html)
+### Stores - [Setup Stores](https://pinia.vuejs.org/core-concepts/#Setup-Stores) and [Pinia Install](https://pinia.vuejs.org/ssr/nuxt.html)
 
 ### Nuxt Core Concepts 
 
@@ -277,7 +278,7 @@ onMounted(()=> {....})
 
 #### Deployments - [Ref](https://nuxt.com/docs/getting-started/deployment)
 
-### Cool Packages and Modules [Ref](https://nuxt.com/modules)
+### Cool Packages and Modules - [Ref](https://nuxt.com/modules)
 
 #### Image Optimization - [Ref](https://image.nuxtjs.org/)
 
