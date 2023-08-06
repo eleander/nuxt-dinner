@@ -213,6 +213,76 @@ Check out their [docs](https://tailwindcss.com/docs)
 
 And just do Ctrl + K and whatever CSS property you are interested in :-)
 
-## Nuxt 
+## Nuxt - [Ref](https://nuxt.com/)
+
+[Nuxtr](https://marketplace.visualstudio.com/items?itemName=Nuxtr.nuxtr-vscode) - Quality of life plugin for Nuxt
+[Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) and [Volar Takeover Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) - Language support for Vue 3 with Typescript
+
+### What is it? - [Ref](https://nuxt.com/docs/getting-started/introduction)
+
+### SSR Simplified - [Ref](https://nuxt.com/docs/guide/concepts/rendering)
+
+#### Universal Rendering
+In essence, you get a full HTML page on page load because Nuxt ran the JS (Vue.js) code in a server environment. Then...the client (browser) downloads the JS and the client (browser) interprets it again and Vue.js takes control of the document and enables interactivity 
+
+Making the static HTML page interactive is called "Hydration"
+
+![SSR](./images/ssr.svg) 
+
+#### Client Side Rendering 
+![CSR](./images/csr.svg) 
+
+### Writing SSR Friendly Code [Ref](https://vuejs.org/guide/scaling-up/ssr.html#writing-ssr-friendly-code)
+
+#### Component Lifecycle
+- Since there are no dynamic updates, lifecycle hooks such as onMounted or onUpdated will NOT be called during SSR and will only be executed on the client.
+- You should avoid code that produces side effects that need cleanup in setup() or the root scope of <script setup>. An example of such side effects is setting up timers with setInterval
+- In client-side only code we may setup a timer and then tear it down in onBeforeUnmount or onUnmounted
+
+#### How to run on only the server 
+
+```vue
+if(process.server) {...}
+```
+
+#### How to Run only on the client 
+```vue
+if(process.client) {...}
+# onMounted has the added benefit that it guarentees  that the DOM is available
+onMounted(()=> {....})
+```
+
+#### Access to Platform-Specific API
+
+- Universal code cannot assume access to platform-specific APIs, so if your code directly uses browser-only globals like **window** or **document**, they will throw errors when executed in Node.js, and vice-versa.
 
 
+### Components [Ref](https://nuxt.com/docs/guide/directory-structure/components)
+
+### Composables [Ref](https://nuxt.com/docs/guide/directory-structure/composables) and [Composables in Depth](https://vuejs.org/guide/reusability/composables.html) and [VueUse](https://vueuse.org/) / [VueUse Install](https://vueuse.org/guide/#nuxt)
+
+### Layouts [Ref](https://nuxt.com/docs/guide/directory-structure/layouts) and [Slots](https://vuejs.org/guide/components/slots.html)
+
+### Pages [Ref](https://nuxt.com/docs/guide/directory-structure/pages)
+
+### Utils [Ref](https://nuxt.com/docs/guide/directory-structure/utils)
+
+### Stores [Setup Stores](https://pinia.vuejs.org/core-concepts/#Setup-Stores) and [Pinia Install](https://pinia.vuejs.org/ssr/nuxt.html)
+
+### Nuxt Core Concepts 
+
+#### Data Fetching - [Ref](https://nuxt.com/docs/getting-started/data-fetching)
+
+#### SEO - [Ref](https://nuxt.com/docs/getting-started/seo-meta)
+
+#### Deployments - [Ref](https://nuxt.com/docs/getting-started/deployment)
+
+### Cool Packages and Modules [Ref](https://nuxt.com/modules)
+
+#### Image Optimization - [Ref](https://image.nuxtjs.org/)
+
+#### Icon - [Ref](https://nuxt.com/modules/icon)
+
+#### DaisyUI - [Ref](https://daisyui.com/)
+
+#### Tailwind Typography - [Ref](https://tailwindcss.com/docs/typography-plugin)
