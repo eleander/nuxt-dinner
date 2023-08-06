@@ -258,30 +258,149 @@ onMounted(()=> {....})
 
 ### Components - [Ref](https://nuxt.com/docs/guide/directory-structure/components)
 
+The components/ directory is where you put all your Vue components. All components are auto-imported!
+
 ### Composables - [Ref](https://nuxt.com/docs/guide/directory-structure/composables) and [Composables in Depth](https://vuejs.org/guide/reusability/composables.html) and [VueUse](https://vueuse.org/) / [VueUse Install](https://vueuse.org/guide/#nuxt)
+
+Nuxt 3 uses the composables/ directory to automatically import your Vue composables into your application using auto-imports!
+
+Warning: You have to run nuxi prepare, nuxi dev or nuxi build in order to let Nuxt generate the types. If you create a composable without having the dev server running, TypeScript will throw an error, such as Cannot find name 'useBar'.
+
+Warning 2: It must start with use{theNameOfYourComposableGoesHere}
+
+A "composable" is a function that leverages Vue's Composition API to encapsulate and reuse **stateful logic**. It is the equivalent to [React's Hooks](https://vuejs.org/guide/extras/composition-api-faq.html#comparison-with-react-hooks)
+
+Example of Vue's Composition API (the most important ones):
+- ref
+- onMounted
+- onUnMounted
+- watchEffect
+- watch
+- computed 
+- etc....
+- 
+#### All Composition API - [Ref](https://vuejs.org/api/)
+
+!(Vue Composition Api)[./images/comp-api.png]
 
 ### Layouts - [Ref](https://nuxt.com/docs/guide/directory-structure/layouts) and [Slots](https://vuejs.org/guide/components/slots.html)
 
+Layouts are used for extracting common UI or code patterns into reusable layout component by using Slots
+
 ### Pages - [Ref](https://nuxt.com/docs/guide/directory-structure/pages)
+
+File based routing via pages 
 
 ### Utils - [Ref](https://nuxt.com/docs/guide/directory-structure/utils)
 
+Nuxt 3 uses the utils/ directory to automatically import helper functions and other utilities throughout your application using auto-imports!
+
+Warning: It must start with use{theNameOfYourUtilGoesHere}
+
 ### Stores - [Setup Stores](https://pinia.vuejs.org/core-concepts/#Setup-Stores) and [Pinia Install](https://pinia.vuejs.org/ssr/nuxt.html)
+
+Stores are your application state. 
+
+Pinia itself has many advantages such as - [ref](https://pinia.vuejs.org/introduction.html):
+- Dev tools support   
+  - A timeline to track actions, mutations  
+  - Stores appear in components where they are used  
+  - Time travel and easier debugging  
+- Hot module replacement  
+  - Modify your stores without reloading your page  
+  - Keep any existing state while developing  
+- Plugins: extend Pinia features with plugins  
+- Proper TypeScript support or autocompletion for JS users  
+- Server Side Rendering Support  
 
 ### Nuxt Core Concepts 
 
 #### Data Fetching - [Ref](https://nuxt.com/docs/getting-started/data-fetching)
 
+Since Nuxt renders pages on both the server and the client environments, some challenges need to be addressed. Therefore, you can use composables to perform data fetching: 
+- useFetch
+- useAsyncState
+
+You can also use $fetch
+
+The ofetch library is built on top of the fetch API and adds handy features to it:
+- Works the same way in browser, Node or worker environments
+- Automatic response parsing
+- Error handling
+- Auto-retry
+- Interceptors
+
+##### Effective Caching 
+useFetch and useAsyncData both use a key to cache API responses and further reduce API calls. Choosing a good value here will improve the performance of your app
+
+Tip: pagination (current page), queries can be included here to increase performance
+
+##### Minimize the Payload
+The **pick** option helps you to minimize the payload size stored in your HTML document by only selecting the fields that you want returned from the composables.
+```vue
+const { data, error, refresh } = await useFetch('api/somePath', {
+  /* only get the id from the api */
+  pick: [id]
+})
+```
+
+#### Watch and Re-Run
+To re-run your fetching function each time other reactive values in your application change, use the **watch** option.
+```vue
+const { data, error, refresh } = await useFetch(`yourApi/somePath?id=${id.value}`, {
+  /* Changing the id will trigger a refetch */
+  watch: [id]
+})
+```
+
 #### SEO - [Ref](https://nuxt.com/docs/getting-started/seo-meta)
 
+##### useHead
+```vue
+
+useHead({
+  title: "Your title",
+  meta: [
+    {
+      name: "Your fancy description",
+    },
+    {
+      property: "og:image",
+      content:
+        "url-to-your-og-image",
+    },
+  ],
+});
+```
+
+##### useServerSeoMeta
+```vue
+<script setup lang="ts">
+useSeoMeta({
+  title: 'My Amazing Site',
+  ogTitle: 'My Amazing Site',
+  description: 'This is my amazing site, let me tell you all about it.',
+  ogDescription: 'This is my amazing site, let me tell you all about it.',
+  ogImage: 'https://example.com/image.png',
+  twitterCard: 'summary_large_image',
+})
+</script>
+```
+
 #### Deployments - [Ref](https://nuxt.com/docs/getting-started/deployment)
+
+With [Vercel](https://nitro.unjs.io/deploy/providers/vercel), you only need to connect your Github repo and everything else is handled :-)
 
 ### Cool Packages and Modules - [Ref](https://nuxt.com/modules)
 
 #### Image Optimization - [Ref](https://image.nuxtjs.org/)
+Resize and transform your images using built-in optimizer or your favorite images CDN.
 
 #### Icon - [Ref](https://nuxt.com/modules/icon)
+Add 100,000+ ready to use icons to your Nuxt application, based on Iconify.
 
 #### DaisyUI - [Ref](https://daisyui.com/)
+daisyUI is a plugin for Tailwind CSS. It works on all JS frameworks and doesn't need a JS bundle file.
 
 #### Tailwind Typography - [Ref](https://tailwindcss.com/docs/typography-plugin)
+The official Tailwind CSS Typography plugin provides a set of **prose** classes you can use to add beautiful typographic defaults to any vanilla HTML you don’t control, like HTML rendered from Markdown, or pulled from a CMS.
