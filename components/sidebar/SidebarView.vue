@@ -15,7 +15,7 @@
     <ul class="grid grid-cols-1 divide-y">
       <li v-for="dish in dishes" :key="dish.id" class="py-2">
         <button
-          @click="$emit('removeDish', dish.id)"
+          @click="$emit('removeDish', dish)"
           class="btn btn-circle btn-sm mr-1"
         >
           X
@@ -36,7 +36,7 @@ defineProps<{
 
 defineEmits<{
   changeNumber: [number];
-  removeDish: [number];
+  removeDish: [ReducedDishDetails];
 }>();
 </script>
 

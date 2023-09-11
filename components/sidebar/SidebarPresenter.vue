@@ -11,14 +11,15 @@
 
 <script lang="ts" setup>
 import { useMyDinnerStore } from "@/stores/dinner";
+import { ReducedDishDetails } from "types";
 const store = useMyDinnerStore();
 
 function changeNumberOfGuests(number: number) {
   store.setNumberOfGuests(number);
 }
 
-function removeDish(id: number) {
-  store.removeFromMenu(id);
+function removeDish(dish: ReducedDishDetails) {
+  store.removeFromMenu(dish.id);
 }
 </script>
 

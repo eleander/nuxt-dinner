@@ -27,7 +27,7 @@ const props = defineProps<{
 }>();
 
 const emit = defineEmits<{
-  selectDish: [selectedDishId: SearchDishesResult];
+  selectDish: [selectedDish: SearchDishesResult];
 }>();
 </script>
 
