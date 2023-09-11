@@ -298,8 +298,6 @@ File based routing via pages
 
 Nuxt 3 uses the utils/ directory to automatically import helper functions and other utilities throughout your application using auto-imports!
 
-Warning: It must start with use{theNameOfYourUtilGoesHere}
-
 ### Stores - [Setup Stores](https://pinia.vuejs.org/core-concepts/#Setup-Stores) and [Pinia Install](https://pinia.vuejs.org/ssr/nuxt.html)
 
 Stores are your application state. 
