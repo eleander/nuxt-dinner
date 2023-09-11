@@ -17,12 +17,7 @@ b
         {{ (dish.pricePerServing * guests).toFixed(2) }}$
       </p>
       <div class="flex flex-col items-center">
-        <NuxtImg
-          loading="lazy"
-          width="350"
-          :src="dish.image"
-          class="rounded-lg"
-        />
+        <NuxtImg width="350" :src="dish.image" class="rounded-lg" />
       </div>
       <p>{{ dish.instructions }}</p>
       <p><a :href="dish.sourceUrl">Original recipe</a></p>
